@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QUIZ o Polsce</title>
+	<link rel="stylesheet" href="stylequiz.css" type="text/css" />
+	<link rel="website icon" href="profilowe.png" type="png" />
+</head>
+<body>
+    <h1>QUIZ o Polsce</h1>
+    <form id="quizForm" onsubmit="startQuiz(event)">
+        <label for="questionCount">Podaj liczbę pytań, na które chcesz odpowiedzieć:</label>
+        <input type="number" id="questionCount" required min="1"  max="10" style="width:160px;">
+        <button type="submit">Rozpocznij QUIZ</button>
+    </form>
+    <div id="quiz-container" style="display: none;">
+        <!-- Pytania i odpowiedzi zostaną wygenerowane dynamicznie za pomocą JavaScript -->
+    </div>
+    <button id="endQuizButton" onclick="submitQuiz()" style="display: none;">Zakończ QUIZ</button>
+	<p id="result" style="display: none;"></p>
+    <script src="pytania.js"></script>
+</body>
+</html>

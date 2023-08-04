@@ -1,0 +1,84 @@
+body
+{
+	background-image: url("https://i.ibb.co/QPGHynZ/tlo.jpg");
+	font-size:18px;
+}
+
+#kontener
+{
+	width: 90%;
+	margin:0 auto;
+	padding:0 auto;
+}
+
+#baner
+{
+	color: white;
+	text-align: center;
+	font-size: 35px;
+}
+
+#lewy
+{
+	width: 45%;
+	height:75%;
+	float: left;
+	text-align: center;
+}
+
+#prawy
+{
+	width: 45%;
+	height:75%;
+	border-left:2px #99cccc solid;
+	float: left;
+	padding: 60px;
+}
+
+#galeria
+{
+	background-color: #c0c0c0;
+	border-radius: 6px;
+	height: 400px;
+	width: 890px;
+	text-align: center;
+}
+
+#stopka
+{
+	height: 10%;
+	text-align: center;
+	border-radius: 8px;
+	font-family: 'Sedgwick Ave', cursive;
+	letter-spacing: 2px;
+	color: white;
+	clear: both;
+}
+
+h3
+{
+	color: #800080;
+}
+
+img
+{
+	padding: 10px;
+	padding-right: 20px;
+	width: 265px;
+	height: 200px;
+	border-radius: 20px 30px 30px 30px;
+}
+
+input[type="button"]
+{
+	background-color: #800080;
+	height: 45px;
+	font-weight: bold;
+	color: white;
+	border-radius: 5px;
+}
+
+input[type="number"]
+{
+	width: 50px;
+}

@@ -1,0 +1,86 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Wczasy nad Bałtykiem</title>
+	<link rel="stylesheet" href="wczasy_nad_bal.css" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave" rel="stylesheet">
+	<link rel="website icon" href="profilowe.png" type="png" />
+</head>
+<body>
+	<section id="kontener">
+		<section id="baner">
+			Wczasy nad Bałtykiem
+			<br>
+		</section>
+		
+		<section id="lewy">
+			<table>
+				<tr>
+					<td><h3>Formularz zgłoszeniowy:</h3></td>
+				</tr>
+				<tr>
+					<form method="post">
+					<td>Liczba dzieci (0-18 lat) (cena: 25 złotych)</td>
+					<td><input type="number" id="ilosc_dzi"></td>
+				</tr>
+				<tr>
+					<td>Liczba dorosłych (cena: 100 złotych)</td>
+					<td><input type="number" id="ilosc_dor"></td>
+				</tr>
+				<tr>
+					<td>Liczba noclegów</td>
+					<td><input type="number" id="ilosc_noc"></td>
+				</tr>
+				<tr>
+					<td><center><input type="button" onClick="wczasy();" value="Koszt wczasów"></center></td>
+				</tr>
+				</form>
+				
+			</table>
+			
+				<br />
+				<br />
+				<section id="wynik">
+					<script>
+						function wczasy()
+						{
+							var dzieci=document.getElementById("ilosc_dzi").value;
+							var dorosli=document.getElementById("ilosc_dor").value;
+							var noc=document.getElementById("ilosc_noc").value;
+							if (!isNaN(dzieci) && !isNaN(dorosli) && !isNaN(noc) && dzieci!="" && dorosli!="" && noc!="")
+							{
+								var koszt_wczasow=(dzieci*25+dorosli*100)*noc;
+								document.getElementById("wynik").innerHTML="<h3>TWOJE ZAMÓWIENIE:</h3> Liczba dzieci: "+dzieci+" <br> Liczba dorosłych: "+dorosli+" <br> Liczba noclegów: "+noc+" <br> Koszt wczasów wynosi: "+koszt_wczasow+" zł";
+							}
+						}
+					</script>
+				</section>
+		</section>
+		
+		
+		<section id="prawy">
+			<section id="galeria">
+				<h3>Galeria zdjęć</h3>
+				<table>
+					<tr>
+						<td><img src="https://i.ibb.co/dKfWSfp/b1.jpg" /></td>
+						<td><img src="https://i.ibb.co/KVHVRDk/b2.jpg" /></td>
+						<td><img src="https://i.ibb.co/rM7z5J5/b3.jpg" /></td>
+					</tr>
+					<tr>
+						<td><img src="https://i.ibb.co/z7Z26fj/b4.jpg" /></td>
+						<td><img src="https://i.ibb.co/JsPY9HH/b5.jpg" /></td>
+						<td><img src="https://i.ibb.co/sRmFszm/b6.jpg" /></td>
+					</tr>
+				</table>
+			</section>
+		</section>
+		
+		<section id="stopka">
+		<br>
+			XYZ
+		</section>
+		
+	</section>
+</body>
+</html>

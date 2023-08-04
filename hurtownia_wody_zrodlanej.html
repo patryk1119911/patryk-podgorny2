@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Hurtownia wody źródlanej</title>
+		<link rel="stylesheet" type="text/css" href="hurtownia_wody_zro.css">
+		<link rel="website icon" href="profilowe.png" type="png" />
+	</head>
+	<body>
+		<div id="glowny_kontener">
+		<script>
+			function przelicz()
+			{
+				var zyw=document.getElementById("d1").value;
+				var musz=document.getElementById("d2").value;
+				var cis=document.getElementById("d3").value;
+				if (!isNaN(zyw) && zyw!="")
+				{
+					var koszt=(zyw*1,50);
+					document.getElementById("blok_pod_formularzem").innerHTML="Kupiłeś: "+koszt+" zł.";
+				}
+				else if (!isNaN(musz) && musz!="")
+				{
+					var koszt2=(musz*1,70);
+					document.getElementById("blok_pod_formularzem").innerHTML="Kupiłeś: "+koszt2+" zł.";
+				}
+				else if (!isNaN(cis) && cis!="")
+				{
+					var koszt3=(cis*1,55);
+					document.getElementById("blok_pod_formularzem").innerHTML="Kupiłeś: "+koszt3+" zł.";
+				}
+			}
+		</script>
+			<div id="baner">
+				<center>Źródlana woda uśmiechu doda!!!</center>
+			</div>
+			
+			<div id="panel_lewy">
+				<div id="blok_z_formularzem">
+					<h2>Oferta handlowa:</h2>
+					<table>
+						<tr>
+							<td>Woda Żywiec</td><td>1,50zł/1,5l</td>
+						</tr>
+						<tr>
+							<td>Woda Muszynianka</td><td>1,70zł/1,5l</td>
+						</tr>
+						<tr>
+							<td>Woda Cisowianka</td><td>1,55zł/1,5l</td>
+						</tr>
+					</table>
+					<h2>Formularz zakupów:</h2>
+					<form method="POST">
+						<table>
+							<tr>
+								<td>Rodzaj wody:</td> <td>
+									<select>
+										<option id="d1">Żywiec</option>
+										<option id="d2">Muszynianka</option>
+										<option id="d3">Cisowianka</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>Liczba butelek:</td> <td><input type="number"></label></td>
+							</tr>
+							<tr>
+								<td></td> <td><input type="button" id="button" value="Koszt zamówienia" onClick="przelicz()"></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+				<br>
+				<div id="blok_pod_formularzem">
+				</div>
+			</div>
+			
+			<div id="panel_prawy">
+				<img src="https://i.ibb.co/9Tsc06h/gorski-krajobraz.jpg"></img>
+			</div>
+			
+			<div id="stopka">
+				"Jakie to lekie w krpliki deszczu"
+				<br><br>
+				<b>Wisława Szymborska<b>
+				<br><br>
+			</div>
+			
+			
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,103 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f0f0f0;
+}
+header {
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
+	text-align: center;
+}
+section {
+	padding: 40px;
+}
+.project {
+	border: 1px solid #ccc;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+footer {
+	background-color: #333;
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+}
+nav {
+	background-color: #444;
+	padding: 10px;
+	text-align: center;
+}
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+nav ul li {
+	display: inline-block;
+	margin: 0 10px;
+}
+nav ul li a {
+	color: #fff;
+	text-decoration: none;
+}
+nav ul li a:hover {
+	border-bottom: 2px solid #fff;
+}
+/* Style dla rozwijanego menu */
+.menu-toggle {
+	display: none;
+}
+.menu-toggle:checked ~ nav ul {
+	display: block;
+}
+@media screen and (max-width: 768px) {
+	nav ul {
+		display: none;
+	}
+	.menu-toggle {
+		display: block;
+	}
+	.menu-toggle-label {
+		cursor: pointer;
+		padding: 10px;
+		background-color: #555;
+		color: #fff;
+	}
+}
+
+.custom-button {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #89CFF0;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.custom-button:hover {
+    background-color: #6BB5E0;
+}
+
+.custom-button:active {
+    background-color: #4A8FB8;
+}
+
+/* Ukrycie paska przewijania pionowego */
+body {
+  overflow-y: scroll; /* Wyświetla pasek przewijania tylko wtedy, gdy jest potrzebny */
+  scrollbar-width: none; /* Ukrycie paska przewijania na przeglądarkach, które wspierają ten styl (np. Firefox) */
+  -ms-overflow-style: none; /* Ukrycie paska przewijania na przeglądarkach Microsoft Edge */
+}
+
+/* Dla przeglądarek WebKit, takich jak Chrome lub Safari, możemy dodać specjalny selektor */
+/* aby ukryć pasek przewijania pionowego na tych przeglądarkach */
+/* Możesz dostosować to dla innych przeglądarek, jeśli zachodzi taka potrzeba. */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}

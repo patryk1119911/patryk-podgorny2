@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+    <meta charset="utf-8" />
+    <title>Gra zgadnij liczbę</title>
+    <link rel="website icon" href="profilowe.png" type="png" />
+    <style>
+        html {
+            font-family: sans-serif;
+        }
+
+        body {
+            width: 50%;
+            max-width: 800px;
+            min-width: 480px;
+            margin: 0 auto;
+        }
+
+        .lastResult {
+            color: white;
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+<h1>Zgadnij liczbę</h1>
+<p>Program wybrał liczbę od 1 do 100. Sprawdź czy uda Ci się ją odgadnąć w określonej liczbie prób. Otrzymasz podpowiedzi o tym, czy zgadywana przez Ciebie wartość jest zbyt duża czy zbyt mała.</p>
+<script>
+    data = new Date();
+    document.write("Data i godzina otwarcia gry: " + data.toLocaleString() + "<br>");
+</script>
+<br />
+<div class="form">
+    <label for="guessField">Wprowadź liczbę: </label>
+    <input type="text" id="guessField" class="guessField" />
+    <label for="maxAttempts">Maksymalna liczba prób:</label>
+	<script>
+		const maxAttempts = Number(prompt("Podaj liczbę prób:"));
+		document.write(maxAttempts)
+	</script>
+    <input type="submit" value="Losuj" class="guessSubmit" />
+</div>
+
+<div class="resultParas">
+    <p class="guesses"></p>
+    <p class="lastResult"></p>
+    <p class="lowOrHi"></p>
+</div>
+
+<script type="text/javascript">
+    var randomNumber = Math.floor(Math.random() * 100) + 1;
+
+    const guesses = document.querySelector('.guesses');
+    const lastResult = document.querySelector('.lastResult');
+    const lowOrHi = document.querySelector('.lowOrHi');
+
+    const guessSubmit = document.querySelector('.guessSubmit');
+    const guessField = document.querySelector('.guessField');
+    const maxAttemptsInput = document.getElementById('maxAttempts');
+
+    let guessCount = 1;
+
+    function checkGuess() {
+        if (guessCount > maxAttempts) {
+            return; // Jeśli liczba prób przekroczyła limit, zakończ funkcję
+        }
+        var userGuess = Number(guessField.value);
+        if (guessCount === 1) {
+            guesses.textContent = 'Poprzednio wprowadzone liczby: ';
+            guesses.style.backgroundColor = 'yellow';
+            guesses.style.fontSize = "24px";
+        }
+        guesses.textContent += userGuess + ' ';
+
+        if (userGuess === randomNumber) {
+            lastResult.textContent = 'Gratulacje! Zgadłeś';
+            lastResult.style.backgroundColor = 'green';
+            lowOrHi.textContent = '';
+            setGameOver();
+        } else if (guessCount === maxAttempts) {
+            lastResult.textContent = '!!! Koniec gry';
+            setGameOver();
+        } else {
+            lastResult.textContent = 'Źle!';
+            lastResult.style.backgroundColor = 'red';
+            if (userGuess < randomNumber) {
+                lowOrHi.textContent = 'Zbyt mała liczba!';
+            } else if (userGuess > randomNumber) {
+                lowOrHi.textContent = 'Zbyt duża liczba!';
+            }
+        }
+
+        guessCount++;
+        if (guessCount > maxAttempts) {
+            guessField.disabled = true;
+            guessSubmit.disabled = true;
+        }
+        guessField.value = '';
+        guessField.focus();
+    }
+
+    guessSubmit.addEventListener('click', function() {
+        if (guessCount <= maxAttempts) {
+            checkGuess();
+        }
+    });
+
+    function setGameOver() {
+        guessField.disabled = true;
+        guessSubmit.disabled = true;
+        maxAttemptsInput.disabled = true;
+        resetButton = document.createElement('button');
+        resetButton.textContent = 'Rozpocznij nową grę!';
+        document.body.appendChild(resetButton);
+        resetButton.addEventListener('click', resetGame);
+    }
+
+    function resetGame() {
+        maxAttempts = parseInt(maxAttemptsInput.value) || 10; // Pobierz wartość z pola maxAttempts, jeśli nie zostało wprowadzone, użyj domyślnej wartości 10
+        guessCount = 1;
+        guesses.textContent = '';
+        lastResult.textContent = '';
+        lowOrHi.textContent = '';
+
+        resetButton.parentNode.removeChild(resetButton);
+
+        guessField.disabled = false;
+        guessSubmit.disabled = false;
+        maxAttemptsInput.disabled = false;
+        guessField.value = '';
+        guessField.focus();
+
+        lastResult.style.backgroundColor = 'white';
+
+        randomNumber = Math.floor(Math.random() * 100) + 1;
+    }
+</script>
+
+</body>
+</html>
